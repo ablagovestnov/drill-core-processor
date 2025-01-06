@@ -169,3 +169,20 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Игнорировать содержимое папки input, но оставить саму папку
+!ProcessorData/input/.gitkeep
+ProcessorData/input/*
+# Игнорировать содержимое папок output/images и output/labels, но оставить их
+/output/images/*
+!ProcessorData/output/images/.gitkeep
+!ProcessorData/output/images/train/.gitkeep
+ProcessorData/output/labels/*
+!ProcessorData/output/labels/train/.gitkeep
+!ProcessorData/output/labels/train/classes.txt
+!ProcessorData/output/labels/.gitkeep
+
+.idea
+
+runs
