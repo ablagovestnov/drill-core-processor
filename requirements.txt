@@ -8,3 +8,4 @@ scikit-learn
 pytest
 labelImg
 ultralytics
+openpyxl

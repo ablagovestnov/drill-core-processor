@@ -1,4 +1,4 @@
 train: ../ProcessorData/output/images/train
-val: ../ProcessorData/output/images/train
+val: ../ProcessorData/output/images/val
 nc: 1
 names: ['core']

@@ -182,6 +182,9 @@ ProcessorData/output/labels/*
 !ProcessorData/output/labels/train/.gitkeep
 !ProcessorData/output/labels/train/classes.txt
 !ProcessorData/output/labels/.gitkeep
+ProcessorData/drill_core_samples/*
+ore_markup/*
+!ore_markup/.gitkeep
 
 .idea
 
