@@ -1,0 +1,4 @@
+train: ../ore_markup/images/train
+val: ../ore_markup/images/val
+nc: 35
+names: ['SC', 'Bz', 'TB', 'MQF', 'MS', 'AL', 'MQS', 'Dl', 'Ma', 'Hr', 'MGL', 'BGD', 'CT', 'Dr','CGD', 'GDK', 'GD', 'Ap', 'Mcl', 'Sk', 'VS', 'SH', 'Gy', 'Slt', 'SV', 'BTC', 'Q', 'MCL','Az', 'VQ', 'Ba', 'SQP', 'Ov', 'SS', 'GRP']

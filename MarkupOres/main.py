@@ -243,10 +243,12 @@ def process_photos_for_drill_hole(file_path, intervals, debug=False):
                     'y_min': float(box[1]),
                     'x_max': float(box[2]),
                     'y_max': float(box[3]),
-                    'width': float(box[2]) - float(box[0])
+                    'width': float(box[2]) - float(box[0]),
+                    'height': float(box[3]) - float(box[1])
                 } for box in results[0].boxes.xyxy
             ], key=lambda b: b['y_min'])
             # Calculate rock type breakdown for the interval
+            original_boxes = filter_bounding_boxes(original_boxes)
             photo_interval = []
             total_length = end - start
             prct = 0
@@ -330,6 +332,29 @@ def save_classes_txt(classes_array, output_dirs):
             f.write(classes_txt_content)  # Записываем данные
 
         print(f"classes.txt сохранен в {file_path}")
+
+
+def filter_bounding_boxes(boxes):
+    """
+    Фильтрует bounding boxes, оставляя только те, у которых высота отличается
+    от максимальной не более чем на 20%.
+
+    Parameters:
+        boxes (list of dict): Список bounding boxes с координатами.
+
+    Returns:
+        list of dict: Отфильтрованный список bounding boxes.
+    """
+    if not boxes:
+        return []
+
+    # Определяем максимальную высоту
+    max_height = max(box['height'] for box in boxes)
+
+    # Фильтруем bounding boxes
+    filtered_boxes = [box for box in boxes if abs(box['height'] - max_height) / max_height <= 0.3]
+
+    return filtered_boxes
 
 # Example usage
 if __name__ == "__main__":
